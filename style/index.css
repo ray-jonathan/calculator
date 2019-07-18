@@ -34,6 +34,10 @@ body{
   background-color: rgb(200,200,180);
   width: 70vw;
   height: 80vw;
+  max-height: 600px;
+  max-width: 520px;
+  min-height: 240px;
+  min-width: 215px;
   border-radius: 2%;
   border: 2px solid black;
   box-shadow: 1px 1px 4px black;
