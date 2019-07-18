@@ -15,11 +15,11 @@ window.addEventListener('DOMContentLoaded', () => {
   // Grab the display as we'll be needing soon
   window.display = document.getElementById('display');
 
-
   // Declare a string we'll use to hang on to the operation to perform
   window.equationString = '';
 
-  // Declare some Event Listeners for the different types of buttons
+
+  // Make some Event Listeners for the different types of buttons
   numbersArray.forEach(button => {
     button.addEventListener('click', addToEquationString);
   });
@@ -30,6 +30,8 @@ window.addEventListener('DOMContentLoaded', () => {
     // return the value to 0
     window.display.innerText= '0';
   });
+
+  // Event handler for calculation time
   equalButton.addEventListener('click', () => {
     let result;
     try{
