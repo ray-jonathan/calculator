@@ -31,12 +31,34 @@ window.addEventListener('DOMContentLoaded', () => {
     window.display.innerText= '0';
   });
   equalButton.addEventListener('click', () => {
-    // evaluate the equation
-    const result = eval(window.equationString);
-    // display the evaluation
+    let result;
+    try{
+      // evaluate the equation
+      result = eval(window.equationString);
+      // check to see if the number is too long
+      if(result.toString().replace('.','').length > 9){
+        // set up a nice error message to display in a second
+        setTimeout(() => {
+          window.display.innerText="too \xa0\xa0 big";
+        },1000)
+        // force the 'catch' path
+        throw new Error();
+      }
+      else{
+        // display the evaluation
+        window.display.innerText= result;
+        // update the equationString so further operations can be performed
+        window.equationString = result;
+      }
+    }
+    catch(error){
+      result = "invalid";
+      window.equationString = "0";
+    }
+    // show the evaluation or 'invalid'
     window.display.innerText= result;
-    // update the equationString so further operations can be performed
-    window.equationString = result;
+    // return the operation back to '0' after a short pause
+    setTimeout(() => window.display.innerText=window.equationString, 2000);
   });
 });
 
